@@ -22,11 +22,11 @@
       <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#0F172A" flood-opacity="0.08"/>
     </filter>
   </defs>
-  <text x="30" y="28" font-size="13" font-weight="bold" fill="#0F172A">Mencari Nilai &quot;B&quot; (P berjalan dari First(L) sampai info(P) == &quot;B&quot;):</text>
-  <!-- Pointer Badge First(L) -->
-  <g transform="translate(193.0, 48)">
-    <rect x="0" y="0" width="74.0" height="20" rx="4" fill="#0369A1"/>
-    <text x="37.0" y="14" font-size="9.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">First(L)</text>
+  <text x="30" y="28" font-size="13" font-weight="bold" fill="#0F172A">Mencari Nilai &quot;B&quot; (P berjalan dari dll.first sampai P.info == &quot;B&quot;):</text>
+  <!-- Pointer Badge dll.first -->
+  <g transform="translate(189.25, 48)">
+    <rect x="0" y="0" width="81.5" height="20" rx="4" fill="#0369A1"/>
+    <text x="40.75" y="14" font-size="9.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">dll.first</text>
   </g>
   <line x1="230" y1="68" x2="230" y2="80" stroke="#0369A1" stroke-width="1.8" marker-end="url(#arrow-first)"/>
   <!-- Pointer Badge P (Ditemukan!) -->
@@ -35,10 +35,10 @@
     <text x="52.5" y="14" font-size="9.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">P (Ditemukan!)</text>
   </g>
   <line x1="400" y1="68" x2="400" y2="80" stroke="#7C3AED" stroke-width="1.8" marker-end="url(#arrow-p)"/>
-  <!-- Pointer Badge Last(L) -->
-  <g transform="translate(536.75, 48)">
-    <rect x="0" y="0" width="66.5" height="20" rx="4" fill="#C2410C"/>
-    <text x="33.25" y="14" font-size="9.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">Last(L)</text>
+  <!-- Pointer Badge dll.last -->
+  <g transform="translate(533.0, 48)">
+    <rect x="0" y="0" width="74.0" height="20" rx="4" fill="#C2410C"/>
+    <text x="37.0" y="14" font-size="9.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">dll.last</text>
   </g>
   <line x1="570" y1="68" x2="570" y2="80" stroke="#C2410C" stroke-width="1.8" marker-end="url(#arrow-last)"/>
   <!-- Node A -->
@@ -83,9 +83,9 @@
     <circle cx="14.0" cy="33.0" r="3" fill="#0284C7"/>
     <line x1="88" y1="42" x2="104" y2="16" stroke="#DC2626" stroke-width="2.2" stroke-linecap="round"/>
   </g>
-  <g transform="translate(336.75, 145)">
-    <rect x="0" y="0" width="126.5" height="19" rx="4" fill="#FEF9C3" stroke="#FDE047" stroke-width="1"/>
-    <text x="63.25" y="13.5" font-size="10" font-weight="600" fill="#854D0E" text-anchor="middle">info(P) == target</text>
+  <g transform="translate(340.0, 145)">
+    <rect x="0" y="0" width="120.0" height="19" rx="4" fill="#FEF9C3" stroke="#FDE047" stroke-width="1"/>
+    <text x="60.0" y="13.5" font-size="10" font-weight="600" fill="#854D0E" text-anchor="middle">P.info == target</text>
   </g>
   <g transform="translate(180, 185)">
     <rect x="0" y="0" width="440" height="46" rx="8" fill="#FEFCE8" stroke="#FEF08A" stroke-width="1.2"/>

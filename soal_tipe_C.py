@@ -3,7 +3,7 @@ PRAKTIKUM DOUBLY LINKED LIST -- TIPE C   (Soal 23 s.d. 33)
 =====================================================================
 Data awal tipe ini : ['P', 'Q', 'R', 'S', 'T']
 Catatan tipe       : List 5 node dan target berada di UJUNG list
-                     (First/Last harus ikut diperbarui).
+                     (first / last harus ikut diperbarui).
 
 CARA KERJA
 - Setiap nomor soal dikerjakan oleh SATU mahasiswa. Isi NIM & NAMA pada blok
@@ -11,15 +11,15 @@ CARA KERJA
   (ganti baris `pass`). Jangan mengubah nama fungsi/parameter dan helper.py.
 - Jalankan  python3 soal_tipe_C.py  untuk melihat hasil pengujian otomatis.
 
-STRUKTUR KELAS (ada di helper.py, tinggal di-import)
+STRUKTUR OBJEK (ada di helper.py, tinggal dipakai)
     class Node:
-        self.info  -> data node (satu huruf, mis. "P") [kompatibel juga: self.isi]
-        self.prev  -> node sebelumnya (None jika tidak ada / nil)
-        self.next  -> node sesudahnya (None jika tidak ada / nil)
+        self.info  -> data node (mis. "P") [atau self.isi]
+        self.prev  -> pointer ke node sebelumnya (None jika di ujung kiri)
+        self.next  -> pointer ke node sesudahnya  (None jika di ujung kanan)
 
     class DoublyLinkedList:
-        self.first -> node pertama (First(L), None jika list kosong) [kompatibel: self.head]
-        self.last  -> node terakhir (Last(L), None jika list kosong)  [kompatibel: self.tail]
+        self.first -> pointer ke node paling depan (None jika list kosong) [atau self.head]
+        self.last  -> pointer ke node paling belakang (None jika list kosong) [atau self.tail]
 
 - Membuat node baru : P = Node("X")
 - Pointer next dan prev HARUS konsisten (diperiksa otomatis dua arah).
@@ -41,9 +41,9 @@ def soal_23_insert_empty(dll, data):
     Hasil        : Y
 
     PSEUDOCODE:
-    P <- BIKIN_NODE(data)
-    First(L) <- P
-    Last(L) <- P
+    P = Node(data)
+    dll.first = P
+    dll.last = P
     """
     pass  # <-- tulis kode Anda di sini
 
@@ -60,10 +60,10 @@ def soal_24_insert_first(dll, data):
     Hasil        : V <-> P <-> Q <-> R <-> S <-> T
 
     PSEUDOCODE:
-    P <- BIKIN_NODE(data)
-    next(P) <- First(L)
-    prev(First(L)) <- P
-    First(L) <- P
+    P = Node(data)
+    P.next = dll.first
+    dll.first.prev = P
+    dll.first = P
     """
     pass  # <-- tulis kode Anda di sini
 
@@ -80,10 +80,10 @@ def soal_25_insert_last(dll, data):
     Hasil        : P <-> Q <-> R <-> S <-> T <-> W
 
     PSEUDOCODE:
-    P <- BIKIN_NODE(data)
-    prev(P) <- Last(L)
-    next(Last(L)) <- P
-    Last(L) <- P
+    P = Node(data)
+    P.prev = dll.last
+    dll.last.next = P
+    dll.last = P
     """
     pass  # <-- tulis kode Anda di sini
 
@@ -95,15 +95,15 @@ NAMA_26 = "ISI_NAMA"
 
 def soal_26_insert_after(dll, node_target, data):
     """
-    Sisipkan node "X" tepat SETELAH node_target (node "T" / Last(L)).
+    Sisipkan node "X" tepat SETELAH node_target (node "T" / dll.last).
     Kondisi awal : P <-> Q <-> R <-> S <-> T
     Hasil        : P <-> Q <-> R <-> S <-> T <-> X
 
     PSEUDOCODE:
-    P <- BIKIN_NODE(data)
-    prev(P) <- node_target
-    next(node_target) <- P
-    Last(L) <- P
+    P = Node(data)
+    P.prev = node_target
+    node_target.next = P
+    dll.last = P
     """
     pass  # <-- tulis kode Anda di sini
 
@@ -115,15 +115,15 @@ NAMA_27 = "ISI_NAMA"
 
 def soal_27_insert_before(dll, node_target, data):
     """
-    Sisipkan node "Z" tepat SEBELUM node_target (node "P" / First(L)).
+    Sisipkan node "Z" tepat SEBELUM node_target (node "P" / dll.first).
     Kondisi awal : P <-> Q <-> R <-> S <-> T
     Hasil        : Z <-> P <-> Q <-> R <-> S <-> T
 
     PSEUDOCODE:
-    P <- BIKIN_NODE(data)
-    next(P) <- node_target
-    prev(node_target) <- P
-    First(L) <- P
+    P = Node(data)
+    P.next = node_target
+    node_target.prev = P
+    dll.first = P
     """
     pass  # <-- tulis kode Anda di sini
 
@@ -135,17 +135,16 @@ NAMA_28 = "ISI_NAMA"
 
 def soal_28_traverse_maju(dll):
     """
-    Telusuri list dari First(L) ke Last(L), kembalikan string info node dipisah " <-> ".
+    Telusuri list dari first ke last, kembalikan string info node dipisah " <-> ".
     Kondisi awal : P <-> Q <-> R <-> S <-> T
     Hasil        : "P <-> Q <-> R <-> S <-> T"
 
     PSEUDOCODE:
-    hasil <- ""
-    P <- First(L)
-    WHILE P != NULL DO
-        hasil <- GABUNG_STRING(hasil, info(P))
-        P <- next(P)
-    ENDWHILE
+    hasil = ""
+    P = dll.first
+    WHILE P is not None:
+        hasil = GABUNG_STRING(hasil, P.info)
+        P = P.next
     RETURN hasil
     """
     pass  # <-- tulis kode Anda di sini
@@ -158,17 +157,16 @@ NAMA_29 = "ISI_NAMA"
 
 def soal_29_traverse_mundur(dll):
     """
-    Telusuri list dari Last(L) ke First(L), kembalikan string info node dipisah " <-> ".
+    Telusuri list dari last ke first, kembalikan string info node dipisah " <-> ".
     Kondisi awal : P <-> Q <-> R <-> S <-> T
     Hasil        : "T <-> S <-> R <-> Q <-> P"
 
     PSEUDOCODE:
-    hasil <- ""
-    P <- Last(L)
-    WHILE P != NULL DO
-        hasil <- GABUNG_STRING(hasil, info(P))
-        P <- prev(P)
-    ENDWHILE
+    hasil = ""
+    P = dll.last
+    WHILE P is not None:
+        hasil = GABUNG_STRING(hasil, P.info)
+        P = P.prev
     RETURN hasil
     """
     pass  # <-- tulis kode Anda di sini
@@ -186,14 +184,12 @@ def soal_30_search(dll, target):
     Hasil        : node "T"
 
     PSEUDOCODE:
-    P <- First(L)
-    WHILE P != NULL DO
-        IF info(P) == target THEN
+    P = dll.first
+    WHILE P is not None:
+        IF P.info == target:
             RETURN P
-        ENDIF
-        P <- next(P)
-    ENDWHILE
-    RETURN NULL
+        P = P.next
+    RETURN None
     """
     pass  # <-- tulis kode Anda di sini
 
@@ -210,10 +206,8 @@ def soal_31_delete_first(dll):
     Hasil        : Q <-> R <-> S <-> T
 
     PSEUDOCODE:
-    P <- First(L)
-    First(L) <- next(First(L))
-    prev(First(L)) <- NULL
-    HAPUS_NODE(P)
+    dll.first = dll.first.next
+    dll.first.prev = None
     """
     pass  # <-- tulis kode Anda di sini
 
@@ -230,10 +224,8 @@ def soal_32_delete_last(dll):
     Hasil        : P <-> Q <-> R <-> S
 
     PSEUDOCODE:
-    P <- Last(L)
-    Last(L) <- prev(Last(L))
-    next(Last(L)) <- NULL
-    HAPUS_NODE(P)
+    dll.last = dll.last.prev
+    dll.last.next = None
     """
     pass  # <-- tulis kode Anda di sini
 
@@ -245,15 +237,13 @@ NAMA_33 = "ISI_NAMA"
 
 def soal_33_delete_node(dll, node_target):
     """
-    Hapus node_target (node "T" / Last(L)) dari list.
+    Hapus node_target (node "T" / dll.last) dari list.
     Kondisi awal : P <-> Q <-> R <-> S <-> T
     Hasil        : P <-> Q <-> R <-> S
 
     PSEUDOCODE:
-    P <- prev(node_target)
-    Last(L) <- P
-    next(Last(L)) <- NULL
-    HAPUS_NODE(node_target)
+    dll.last = node_target.prev
+    dll.last.next = None
     """
     pass  # <-- tulis kode Anda di sini
 

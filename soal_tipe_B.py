@@ -10,15 +10,15 @@ CARA KERJA
   (ganti baris `pass`). Jangan mengubah nama fungsi/parameter dan helper.py.
 - Jalankan  python3 soal_tipe_B.py  untuk melihat hasil pengujian otomatis.
 
-STRUKTUR KELAS (ada di helper.py, tinggal di-import)
+STRUKTUR OBJEK (ada di helper.py, tinggal dipakai)
     class Node:
-        self.info  -> data node (satu huruf, mis. "K") [kompatibel juga: self.isi]
-        self.prev  -> node sebelumnya (None jika tidak ada / nil)
-        self.next  -> node sesudahnya (None jika tidak ada / nil)
+        self.info  -> data node (mis. "K") [atau self.isi]
+        self.prev  -> pointer ke node sebelumnya (None jika di ujung kiri)
+        self.next  -> pointer ke node sesudahnya  (None jika di ujung kanan)
 
     class DoublyLinkedList:
-        self.first -> node pertama (First(L), None jika list kosong) [kompatibel: self.head]
-        self.last  -> node terakhir (Last(L), None jika list kosong)  [kompatibel: self.tail]
+        self.first -> pointer ke node paling depan (None jika list kosong) [atau self.head]
+        self.last  -> pointer ke node paling belakang (None jika list kosong) [atau self.tail]
 
 - Membuat node baru : P = Node("X")
 - Pointer next dan prev HARUS konsisten (diperiksa otomatis dua arah).
@@ -40,9 +40,9 @@ def soal_12_insert_empty(dll, data):
     Hasil        : T
 
     PSEUDOCODE:
-    P <- BIKIN_NODE(data)
-    First(L) <- P
-    Last(L) <- P
+    P = Node(data)
+    dll.first = P
+    dll.last = P
     """
     pass  # <-- tulis kode Anda di sini
 
@@ -59,10 +59,10 @@ def soal_13_insert_first(dll, data):
     Hasil        : U <-> K <-> L <-> M <-> N
 
     PSEUDOCODE:
-    P <- BIKIN_NODE(data)
-    next(P) <- First(L)
-    prev(First(L)) <- P
-    First(L) <- P
+    P = Node(data)
+    P.next = dll.first
+    dll.first.prev = P
+    dll.first = P
     """
     pass  # <-- tulis kode Anda di sini
 
@@ -79,10 +79,10 @@ def soal_14_insert_last(dll, data):
     Hasil        : K <-> L <-> M <-> N <-> V
 
     PSEUDOCODE:
-    P <- BIKIN_NODE(data)
-    prev(P) <- Last(L)
-    next(Last(L)) <- P
-    Last(L) <- P
+    P = Node(data)
+    P.prev = dll.last
+    dll.last.next = P
+    dll.last = P
     """
     pass  # <-- tulis kode Anda di sini
 
@@ -99,12 +99,12 @@ def soal_15_insert_after(dll, node_target, data):
     Hasil        : K <-> L <-> W <-> M <-> N
 
     PSEUDOCODE:
-    P <- BIKIN_NODE(data)
-    Q <- next(node_target)
-    prev(P) <- node_target
-    next(P) <- Q
-    next(node_target) <- P
-    prev(Q) <- P
+    P = Node(data)
+    Q = node_target.next
+    P.prev = node_target
+    P.next = Q
+    node_target.next = P
+    Q.prev = P
     """
     pass  # <-- tulis kode Anda di sini
 
@@ -121,12 +121,12 @@ def soal_16_insert_before(dll, node_target, data):
     Hasil        : K <-> L <-> Z <-> M <-> N
 
     PSEUDOCODE:
-    P <- BIKIN_NODE(data)
-    Q <- prev(node_target)
-    next(P) <- node_target
-    prev(P) <- Q
-    prev(node_target) <- P
-    next(Q) <- P
+    P = Node(data)
+    Q = node_target.prev
+    P.next = node_target
+    P.prev = Q
+    node_target.prev = P
+    Q.next = P
     """
     pass  # <-- tulis kode Anda di sini
 
@@ -138,17 +138,16 @@ NAMA_17 = "ISI_NAMA"
 
 def soal_17_traverse_maju(dll):
     """
-    Telusuri list dari First(L) ke Last(L), kembalikan string info node dipisah " <-> ".
+    Telusuri list dari first ke last, kembalikan string info node dipisah " <-> ".
     Kondisi awal : K <-> L <-> M <-> N
     Hasil        : "K <-> L <-> M <-> N"
 
     PSEUDOCODE:
-    hasil <- ""
-    P <- First(L)
-    WHILE P != NULL DO
-        hasil <- GABUNG_STRING(hasil, info(P))
-        P <- next(P)
-    ENDWHILE
+    hasil = ""
+    P = dll.first
+    WHILE P is not None:
+        hasil = GABUNG_STRING(hasil, P.info)
+        P = P.next
     RETURN hasil
     """
     pass  # <-- tulis kode Anda di sini
@@ -161,17 +160,16 @@ NAMA_18 = "ISI_NAMA"
 
 def soal_18_traverse_mundur(dll):
     """
-    Telusuri list dari Last(L) ke First(L), kembalikan string info node dipisah " <-> ".
+    Telusuri list dari last ke first, kembalikan string info node dipisah " <-> ".
     Kondisi awal : K <-> L <-> M <-> N
     Hasil        : "N <-> M <-> L <-> K"
 
     PSEUDOCODE:
-    hasil <- ""
-    P <- Last(L)
-    WHILE P != NULL DO
-        hasil <- GABUNG_STRING(hasil, info(P))
-        P <- prev(P)
-    ENDWHILE
+    hasil = ""
+    P = dll.last
+    WHILE P is not None:
+        hasil = GABUNG_STRING(hasil, P.info)
+        P = P.prev
     RETURN hasil
     """
     pass  # <-- tulis kode Anda di sini
@@ -189,14 +187,12 @@ def soal_19_search(dll, target):
     Hasil        : node "M"
 
     PSEUDOCODE:
-    P <- First(L)
-    WHILE P != NULL DO
-        IF info(P) == target THEN
+    P = dll.first
+    WHILE P is not None:
+        IF P.info == target:
             RETURN P
-        ENDIF
-        P <- next(P)
-    ENDWHILE
-    RETURN NULL
+        P = P.next
+    RETURN None
     """
     pass  # <-- tulis kode Anda di sini
 
@@ -213,10 +209,8 @@ def soal_20_delete_first(dll):
     Hasil        : L <-> M <-> N
 
     PSEUDOCODE:
-    P <- First(L)
-    First(L) <- next(First(L))
-    prev(First(L)) <- NULL
-    HAPUS_NODE(P)
+    dll.first = dll.first.next
+    dll.first.prev = None
     """
     pass  # <-- tulis kode Anda di sini
 
@@ -233,10 +227,8 @@ def soal_21_delete_last(dll):
     Hasil        : K <-> L <-> M
 
     PSEUDOCODE:
-    P <- Last(L)
-    Last(L) <- prev(Last(L))
-    next(Last(L)) <- NULL
-    HAPUS_NODE(P)
+    dll.last = dll.last.prev
+    dll.last.next = None
     """
     pass  # <-- tulis kode Anda di sini
 
@@ -253,11 +245,10 @@ def soal_22_delete_node(dll, node_target):
     Hasil        : K <-> M <-> N
 
     PSEUDOCODE:
-    P <- prev(node_target)
-    Q <- next(node_target)
-    next(P) <- Q
-    prev(Q) <- P
-    HAPUS_NODE(node_target)
+    P = node_target.prev
+    Q = node_target.next
+    P.next = Q
+    Q.prev = P
     """
     pass  # <-- tulis kode Anda di sini
 

@@ -82,7 +82,7 @@ def render_node(x, y, data_text, prev_null=False, next_null=False, variant="norm
     svg += "  </g>\n"
     return svg
 
-def render_pointer(x_center, y_top, label="First(L)", p_type="first", width=None):
+def render_pointer(x_center, y_top, label="dll.first", p_type="first", width=None):
     colors = {
         "first": ("#0369A1", "url(#arrow-first)"),
         "last": ("#C2410C", "url(#arrow-last)"),
@@ -132,29 +132,29 @@ def render_bottom_tag(x_center, y_top, text, variant="info"):
 # -------------------------------------------------------------
 def gen_soal_01():
     out = create_svg_template("0 0 800 370")
-    out += '  <text x="30" y="28" font-size="13" font-weight="bold" fill="#0F172A">1. Kondisi Awal (List L masih kosong, Node baru P dialokasikan):</text>\n'
-    out += render_pointer(220, 50, "First(L) = NULL", "first", width=95)
-    out += render_pointer(360, 50, "Last(L) = NULL", "last", width=95)
+    out += '  <text x="30" y="28" font-size="13" font-weight="bold" fill="#0F172A">1. Kondisi Awal (List masih kosong, Node baru P dialokasikan):</text>\n'
+    out += render_pointer(220, 50, "dll.first = None", "first", width=95)
+    out += render_pointer(360, 50, "dll.last = None", "last", width=95)
     out += render_pointer(580, 50, "P (Node Baru)", "p", width=95)
     
     out += """  <g transform="translate(170, 86)">
     <rect x="0" y="0" width="100" height="48" rx="6" fill="#F8FAFC" stroke="#94A3B8" stroke-dasharray="4 4" stroke-width="1.5"/>
-    <text x="50" y="29" font-size="12" font-weight="bold" fill="#94A3B8" text-anchor="middle">NULL</text>
+    <text x="50" y="29" font-size="12" font-weight="bold" fill="#94A3B8" text-anchor="middle">None</text>
   </g>
   <g transform="translate(310, 86)">
     <rect x="0" y="0" width="100" height="48" rx="6" fill="#F8FAFC" stroke="#94A3B8" stroke-dasharray="4 4" stroke-width="1.5"/>
-    <text x="50" y="29" font-size="12" font-weight="bold" fill="#94A3B8" text-anchor="middle">NULL</text>
+    <text x="50" y="29" font-size="12" font-weight="bold" fill="#94A3B8" text-anchor="middle">None</text>
   </g>
 """
     out += render_node(525, 86, "D", prev_null=True, next_null=True, variant="new")
-    out += render_bottom_tag(580, 145, "P = BIKIN_NODE(&quot;D&quot;)", "p")
+    out += render_bottom_tag(580, 145, "P = Node(&quot;D&quot;)", "p")
 
     out += '  <line x1="30" y1="175" x2="770" y2="175" stroke="#E2E8F0" stroke-width="1"/>\n'
-    out += '  <text x="30" y="205" font-size="13" font-weight="bold" fill="#0F172A">2. Hasil Akhir (First(L) &lt;- P, Last(L) &lt;- P):</text>\n'
-    out += render_pointer(315, 222, "First(L)", "first")
-    out += render_pointer(485, 222, "Last(L)", "last")
+    out += '  <text x="30" y="205" font-size="13" font-weight="bold" fill="#0F172A">2. Hasil Akhir (dll.first = P, dll.last = P):</text>\n'
+    out += render_pointer(315, 222, "dll.first", "first")
+    out += render_pointer(485, 222, "dll.last", "last")
     out += render_node(345, 260, "D", prev_null=True, next_null=True, variant="new")
-    out += render_bottom_tag(400, 322, "First(L) = Last(L) = P", "new")
+    out += render_bottom_tag(400, 322, "dll.first = dll.last = P", "new")
     out += "</svg>"
     return out
 
@@ -165,11 +165,11 @@ def gen_soal_02():
     out = create_svg_template("0 0 800 370")
     out += '  <text x="30" y="28" font-size="13" font-weight="bold" fill="#0F172A">1. Kondisi Awal (Node Baru P di depan + List &quot;A&quot; &lt;-&gt; &quot;B&quot; &lt;-&gt; &quot;C&quot;):</text>\n'
     out += render_pointer(115, 48, "P (Node Baru)", "p", width=95)
-    out += render_pointer(275, 48, "First(L)", "first")
-    out += render_pointer(595, 48, "Last(L)", "last")
+    out += render_pointer(275, 48, "dll.first", "first")
+    out += render_pointer(595, 48, "dll.last", "last")
     
     out += render_node(60, 86, "E", prev_null=True, next_null=True, variant="new")
-    out += render_bottom_tag(115, 145, "P = BIKIN_NODE(&quot;E&quot;)", "p")
+    out += render_bottom_tag(115, 145, "P = Node(&quot;E&quot;)", "p")
     
     out += render_node(220, 86, "A", prev_null=True, next_null=False, variant="normal")
     out += render_link(330, 380, 104, 120)
@@ -178,9 +178,9 @@ def gen_soal_02():
     out += render_node(540, 86, "C", prev_null=False, next_null=True, variant="normal")
 
     out += '  <line x1="30" y1="175" x2="770" y2="175" stroke="#E2E8F0" stroke-width="1"/>\n'
-    out += '  <text x="30" y="205" font-size="13" font-weight="bold" fill="#0F172A">2. Hasil Akhir (P tersambung di depan &quot;A&quot;, First(L) &lt;- P):</text>\n'
-    out += render_pointer(115, 222, "First(L) (P)", "first", width=80)
-    out += render_pointer(595, 222, "Last(L)", "last")
+    out += '  <text x="30" y="205" font-size="13" font-weight="bold" fill="#0F172A">2. Hasil Akhir (P tersambung di depan &quot;A&quot;, dll.first = P):</text>\n'
+    out += render_pointer(115, 222, "dll.first (P)", "first", width=80)
+    out += render_pointer(595, 222, "dll.last", "last")
     out += render_node(60, 260, "E", prev_null=True, next_null=False, variant="new")
     out += render_link(170, 220, 278, 294)
     out += render_node(220, 260, "A", prev_null=False, next_null=False, variant="normal")
@@ -188,7 +188,7 @@ def gen_soal_02():
     out += render_node(380, 260, "B", prev_null=False, next_null=False, variant="normal")
     out += render_link(490, 540, 278, 294)
     out += render_node(540, 260, "C", prev_null=False, next_null=True, variant="normal")
-    out += render_bottom_tag(115, 322, "First(L) Baru (P)", "new")
+    out += render_bottom_tag(115, 322, "dll.first Baru (P)", "new")
     out += "</svg>"
     return out
 
@@ -198,8 +198,8 @@ def gen_soal_02():
 def gen_soal_03():
     out = create_svg_template("0 0 800 370")
     out += '  <text x="30" y="28" font-size="13" font-weight="bold" fill="#0F172A">1. Kondisi Awal (List &quot;A&quot; &lt;-&gt; &quot;B&quot; &lt;-&gt; &quot;C&quot; + Node Baru P di belakang):</text>\n'
-    out += render_pointer(115, 48, "First(L)", "first")
-    out += render_pointer(435, 48, "Last(L)", "last")
+    out += render_pointer(115, 48, "dll.first", "first")
+    out += render_pointer(435, 48, "dll.last", "last")
     out += render_pointer(595, 48, "P (Node Baru)", "p", width=95)
     
     out += render_node(60, 86, "A", prev_null=True, next_null=False, variant="normal")
@@ -208,12 +208,12 @@ def gen_soal_03():
     out += render_link(330, 380, 104, 120)
     out += render_node(380, 86, "C", prev_null=False, next_null=True, variant="normal")
     out += render_node(540, 86, "F", prev_null=True, next_null=True, variant="new")
-    out += render_bottom_tag(595, 145, "P = BIKIN_NODE(&quot;F&quot;)", "p")
+    out += render_bottom_tag(595, 145, "P = Node(&quot;F&quot;)", "p")
 
     out += '  <line x1="30" y1="175" x2="770" y2="175" stroke="#E2E8F0" stroke-width="1"/>\n'
-    out += '  <text x="30" y="205" font-size="13" font-weight="bold" fill="#0F172A">2. Hasil Akhir (P tersambung di belakang &quot;C&quot;, Last(L) &lt;- P):</text>\n'
-    out += render_pointer(115, 222, "First(L)", "first")
-    out += render_pointer(595, 222, "Last(L) (P)", "last", width=80)
+    out += '  <text x="30" y="205" font-size="13" font-weight="bold" fill="#0F172A">2. Hasil Akhir (P tersambung di belakang &quot;C&quot;, dll.last = P):</text>\n'
+    out += render_pointer(115, 222, "dll.first", "first")
+    out += render_pointer(595, 222, "dll.last (P)", "last", width=80)
     out += render_node(60, 260, "A", prev_null=True, next_null=False, variant="normal")
     out += render_link(170, 220, 278, 294)
     out += render_node(220, 260, "B", prev_null=False, next_null=False, variant="normal")
@@ -221,7 +221,7 @@ def gen_soal_03():
     out += render_node(380, 260, "C", prev_null=False, next_null=False, variant="normal")
     out += render_link(490, 540, 278, 294)
     out += render_node(540, 260, "F", prev_null=False, next_null=True, variant="new")
-    out += render_bottom_tag(595, 322, "Last(L) Baru (P)", "new")
+    out += render_bottom_tag(595, 322, "dll.last Baru (P)", "new")
     out += "</svg>"
     return out
 
@@ -230,10 +230,10 @@ def gen_soal_03():
 # -------------------------------------------------------------
 def gen_soal_04():
     out = create_svg_template("0 0 800 370")
-    out += '  <text x="30" y="28" font-size="13" font-weight="bold" fill="#0F172A">1. Kondisi Awal (List 3 Node: target = &quot;B&quot;, Q = next(target) = &quot;C&quot; + Node Baru P):</text>\n'
-    out += render_pointer(125, 48, "First(L)", "first")
-    out += render_pointer(285, 48, "target", "target", width=60)
-    out += render_pointer(445, 48, "Q (next(target))", "q", width=110)
+    out += '  <text x="30" y="28" font-size="13" font-weight="bold" fill="#0F172A">1. Kondisi Awal (List 3 Node: target = &quot;B&quot;, Q = target.next = &quot;C&quot; + Node Baru P):</text>\n'
+    out += render_pointer(125, 48, "dll.first", "first")
+    out += render_pointer(285, 48, "node_target", "target", width=80)
+    out += render_pointer(445, 48, "Q (target.next)", "q", width=95)
     out += render_pointer(625, 48, "P (Node Baru)", "p", width=95)
     
     out += render_node(70, 86, "A", prev_null=True, next_null=False, variant="normal")
@@ -243,14 +243,14 @@ def gen_soal_04():
     out += render_node(390, 86, "C", prev_null=False, next_null=True, variant="normal")
     out += render_node(570, 86, "G", prev_null=True, next_null=True, variant="new")
     out += render_bottom_tag(285, 145, "target (&quot;B&quot;)", "target")
-    out += render_bottom_tag(625, 145, "P = BIKIN_NODE(&quot;G&quot;)", "p")
+    out += render_bottom_tag(625, 145, "P = Node(&quot;G&quot;)", "p")
 
     out += '  <line x1="30" y1="175" x2="770" y2="175" stroke="#E2E8F0" stroke-width="1"/>\n'
     out += '  <text x="30" y="205" font-size="13" font-weight="bold" fill="#0F172A">2. Hasil Akhir (P disisipkan SETELAH target &quot;B&quot;, List menjadi 4 Node):</text>\n'
-    out += render_pointer(115, 222, "First(L)", "first")
+    out += render_pointer(115, 222, "dll.first", "first")
     out += render_pointer(275, 222, "target", "target", width=55)
     out += render_pointer(435, 222, "P (Baru)", "p", width=65)
-    out += render_pointer(595, 222, "Last(L) (Q)", "last", width=80)
+    out += render_pointer(595, 222, "dll.last (Q)", "last", width=80)
     out += render_node(60, 260, "A", prev_null=True, next_null=False, variant="normal")
     out += render_link(170, 220, 278, 294)
     out += render_node(220, 260, "B", prev_null=False, next_null=False, variant="target")
@@ -267,10 +267,10 @@ def gen_soal_04():
 # -------------------------------------------------------------
 def gen_soal_05():
     out = create_svg_template("0 0 800 370")
-    out += '  <text x="30" y="28" font-size="13" font-weight="bold" fill="#0F172A">1. Kondisi Awal (List 3 Node: Q = prev(target) = &quot;A&quot;, target = &quot;B&quot; + Node Baru P):</text>\n'
-    out += render_pointer(125, 48, "First(L) (Q)", "first", width=85)
-    out += render_pointer(285, 48, "target", "target", width=60)
-    out += render_pointer(445, 48, "Last(L)", "last")
+    out += '  <text x="30" y="28" font-size="13" font-weight="bold" fill="#0F172A">1. Kondisi Awal (List 3 Node: Q = target.prev = &quot;A&quot;, target = &quot;B&quot; + Node Baru P):</text>\n'
+    out += render_pointer(125, 48, "dll.first (Q)", "first", width=85)
+    out += render_pointer(285, 48, "node_target", "target", width=80)
+    out += render_pointer(445, 48, "dll.last", "last")
     out += render_pointer(625, 48, "P (Node Baru)", "p", width=95)
     
     out += render_node(70, 86, "A", prev_null=True, next_null=False, variant="normal")
@@ -280,14 +280,14 @@ def gen_soal_05():
     out += render_node(390, 86, "C", prev_null=False, next_null=True, variant="normal")
     out += render_node(570, 86, "H", prev_null=True, next_null=True, variant="new")
     out += render_bottom_tag(285, 145, "target (&quot;B&quot;)", "target")
-    out += render_bottom_tag(625, 145, "P = BIKIN_NODE(&quot;H&quot;)", "p")
+    out += render_bottom_tag(625, 145, "P = Node(&quot;H&quot;)", "p")
 
     out += '  <line x1="30" y1="175" x2="770" y2="175" stroke="#E2E8F0" stroke-width="1"/>\n'
     out += '  <text x="30" y="205" font-size="13" font-weight="bold" fill="#0F172A">2. Hasil Akhir (P disisipkan SEBELUM target &quot;B&quot;, List menjadi 4 Node):</text>\n'
-    out += render_pointer(115, 222, "First(L) (Q)", "first", width=85)
+    out += render_pointer(115, 222, "dll.first (Q)", "first", width=85)
     out += render_pointer(275, 222, "P (Baru)", "p", width=65)
     out += render_pointer(435, 222, "target", "target", width=55)
-    out += render_pointer(595, 222, "Last(L)", "last")
+    out += render_pointer(595, 222, "dll.last", "last")
     out += render_node(60, 260, "A", prev_null=True, next_null=False, variant="normal")
     out += render_link(170, 220, 278, 294)
     out += render_node(220, 260, "H", prev_null=False, next_null=False, variant="new")
@@ -304,9 +304,9 @@ def gen_soal_05():
 # -------------------------------------------------------------
 def gen_soal_06():
     out = create_svg_template("0 0 800 270")
-    out += '  <text x="30" y="28" font-size="13" font-weight="bold" fill="#0F172A">Penelusuran Maju (P &lt;- First(L), lalu berulang P &lt;- next(P)):</text>\n'
-    out += render_pointer(230, 48, "P (Mulai = First(L))", "p", width=130)
-    out += render_pointer(570, 48, "Last(L) (Berhenti)", "last", width=120)
+    out += '  <text x="30" y="28" font-size="13" font-weight="bold" fill="#0F172A">Penelusuran Maju (P = dll.first, lalu berulang P = P.next):</text>\n'
+    out += render_pointer(230, 48, "P (Mulai = dll.first)", "p", width=130)
+    out += render_pointer(570, 48, "dll.last (Berhenti)", "last", width=120)
     out += render_node(175, 86, "A", prev_null=True, next_null=False, variant="normal")
     out += '  <line x1="285" y1="112" x2="345" y2="112" stroke="#7C3AED" stroke-width="2.8" marker-end="url(#arrow-p)"/>\n'
     out += render_node(345, 86, "B", prev_null=False, next_null=False, variant="normal")
@@ -325,9 +325,9 @@ def gen_soal_06():
 # -------------------------------------------------------------
 def gen_soal_07():
     out = create_svg_template("0 0 800 270")
-    out += '  <text x="30" y="28" font-size="13" font-weight="bold" fill="#0F172A">Penelusuran Mundur (P &lt;- Last(L), lalu berulang P &lt;- prev(P)):</text>\n'
-    out += render_pointer(230, 48, "First(L) (Berhenti)", "first", width=120)
-    out += render_pointer(570, 48, "P (Mulai = Last(L))", "p", width=130)
+    out += '  <text x="30" y="28" font-size="13" font-weight="bold" fill="#0F172A">Penelusuran Mundur (P = dll.last, lalu berulang P = P.prev):</text>\n'
+    out += render_pointer(230, 48, "dll.first (Berhenti)", "first", width=120)
+    out += render_pointer(570, 48, "P (Mulai = dll.last)", "p", width=130)
     out += render_node(175, 86, "A", prev_null=True, next_null=False, variant="normal")
     out += '  <line x1="345" y1="112" x2="285" y2="112" stroke="#EA580C" stroke-width="2.8" marker-end="url(#arrow-orange)"/>\n'
     out += render_node(345, 86, "B", prev_null=False, next_null=False, variant="normal")
@@ -346,16 +346,16 @@ def gen_soal_07():
 # -------------------------------------------------------------
 def gen_soal_08():
     out = create_svg_template("0 0 800 270")
-    out += '  <text x="30" y="28" font-size="13" font-weight="bold" fill="#0F172A">Mencari Nilai &quot;B&quot; (P berjalan dari First(L) sampai info(P) == &quot;B&quot;):</text>\n'
-    out += render_pointer(230, 48, "First(L)", "first")
+    out += '  <text x="30" y="28" font-size="13" font-weight="bold" fill="#0F172A">Mencari Nilai &quot;B&quot; (P berjalan dari dll.first sampai P.info == &quot;B&quot;):</text>\n'
+    out += render_pointer(230, 48, "dll.first", "first")
     out += render_pointer(400, 48, "P (Ditemukan!)", "p", width=105)
-    out += render_pointer(570, 48, "Last(L)", "last")
+    out += render_pointer(570, 48, "dll.last", "last")
     out += render_node(175, 86, "A", prev_null=True, next_null=False, variant="normal")
     out += render_link(285, 345, 104, 120)
     out += render_node(345, 86, "B", prev_null=False, next_null=False, variant="target")
     out += render_link(455, 515, 104, 120)
     out += render_node(515, 86, "C", prev_null=False, next_null=True, variant="normal")
-    out += render_bottom_tag(400, 145, "info(P) == target", "target")
+    out += render_bottom_tag(400, 145, "P.info == target", "target")
     
     out += """  <g transform="translate(180, 185)">
     <rect x="0" y="0" width="440" height="46" rx="8" fill="#FEFCE8" stroke="#FEF08A" stroke-width="1.2"/>
@@ -370,9 +370,9 @@ def gen_soal_08():
 def gen_soal_09():
     out = create_svg_template("0 0 800 370")
     out += '  <text x="30" y="28" font-size="13" font-weight="bold" fill="#0F172A">1. Kondisi Awal (List 3 Node, node pertama &quot;A&quot; ditunjuk P untuk dihapus):</text>\n'
-    out += render_pointer(230, 48, "First(L) (P)", "first", width=85)
-    out += render_pointer(400, 48, "First(L) Baru", "blue", width=90)
-    out += render_pointer(570, 48, "Last(L)", "last")
+    out += render_pointer(230, 48, "dll.first (P)", "first", width=85)
+    out += render_pointer(400, 48, "dll.first Baru", "blue", width=90)
+    out += render_pointer(570, 48, "dll.last", "last")
     out += render_node(175, 86, "A", prev_null=True, next_null=False, variant="delete")
     out += render_link(285, 345, 104, 120)
     out += render_node(345, 86, "B", prev_null=False, next_null=False, variant="normal")
@@ -382,12 +382,12 @@ def gen_soal_09():
     
     out += '  <line x1="30" y1="175" x2="770" y2="175" stroke="#E2E8F0" stroke-width="1"/>\n'
     out += '  <text x="30" y="205" font-size="13" font-weight="bold" fill="#0F172A">2. Hasil Akhir (List berkurang menjadi 2 Node &quot;B&quot; &lt;-&gt; &quot;C&quot;):</text>\n'
-    out += render_pointer(315, 222, "First(L)", "first")
-    out += render_pointer(485, 222, "Last(L)", "last")
+    out += render_pointer(315, 222, "dll.first", "first")
+    out += render_pointer(485, 222, "dll.last", "last")
     out += render_node(260, 260, "B", prev_null=True, next_null=False, variant="normal")
     out += render_link(370, 430, 278, 294)
     out += render_node(430, 260, "C", prev_null=False, next_null=True, variant="normal")
-    out += render_bottom_tag(315, 322, "First(L) Baru (prev = NULL)", "info")
+    out += render_bottom_tag(315, 322, "dll.first Baru (prev = None)", "info")
     out += "</svg>"
     return out
 
@@ -397,9 +397,9 @@ def gen_soal_09():
 def gen_soal_10():
     out = create_svg_template("0 0 800 370")
     out += '  <text x="30" y="28" font-size="13" font-weight="bold" fill="#0F172A">1. Kondisi Awal (List 3 Node, node terakhir &quot;C&quot; ditunjuk P untuk dihapus):</text>\n'
-    out += render_pointer(230, 48, "First(L)", "first")
-    out += render_pointer(400, 48, "Last(L) Baru", "blue", width=85)
-    out += render_pointer(570, 48, "Last(L) (P)", "last", width=85)
+    out += render_pointer(230, 48, "dll.first", "first")
+    out += render_pointer(400, 48, "dll.last Baru", "blue", width=85)
+    out += render_pointer(570, 48, "dll.last (P)", "last", width=85)
     out += render_node(175, 86, "A", prev_null=True, next_null=False, variant="normal")
     out += render_link(285, 345, 104, 120)
     out += render_node(345, 86, "B", prev_null=False, next_null=False, variant="normal")
@@ -409,12 +409,12 @@ def gen_soal_10():
     
     out += '  <line x1="30" y1="175" x2="770" y2="175" stroke="#E2E8F0" stroke-width="1"/>\n'
     out += '  <text x="30" y="205" font-size="13" font-weight="bold" fill="#0F172A">2. Hasil Akhir (List berkurang menjadi 2 Node &quot;A&quot; &lt;-&gt; &quot;B&quot;):</text>\n'
-    out += render_pointer(315, 222, "First(L)", "first")
-    out += render_pointer(485, 222, "Last(L)", "last")
+    out += render_pointer(315, 222, "dll.first", "first")
+    out += render_pointer(485, 222, "dll.last", "last")
     out += render_node(260, 260, "A", prev_null=True, next_null=False, variant="normal")
     out += render_link(370, 430, 278, 294)
     out += render_node(430, 260, "B", prev_null=False, next_null=True, variant="normal")
-    out += render_bottom_tag(485, 322, "Last(L) Baru (next = NULL)", "info")
+    out += render_bottom_tag(485, 322, "dll.last Baru (next = None)", "info")
     out += "</svg>"
     return out
 
@@ -423,26 +423,26 @@ def gen_soal_10():
 # -------------------------------------------------------------
 def gen_soal_11():
     out = create_svg_template("0 0 800 370")
-    out += '  <text x="30" y="28" font-size="13" font-weight="bold" fill="#0F172A">1. Kondisi Awal (List 3 Node: P = prev(target), Q = next(target), target &quot;B&quot; dihapus):</text>\n'
-    out += render_pointer(230, 48, "P (prev(target))", "p", width=110)
-    out += render_pointer(400, 48, "target", "target", width=60)
-    out += render_pointer(570, 48, "Q (next(target))", "q", width=110)
+    out += '  <text x="30" y="28" font-size="13" font-weight="bold" fill="#0F172A">1. Kondisi Awal (List 3 Node: P = node_target.prev, Q = node_target.next, target &quot;B&quot; dihapus):</text>\n'
+    out += render_pointer(230, 48, "P (target.prev)", "p", width=105)
+    out += render_pointer(400, 48, "node_target", "target", width=80)
+    out += render_pointer(570, 48, "Q (target.next)", "q", width=105)
     
     out += render_node(175, 86, "A", prev_null=True, next_null=False, variant="normal")
     out += render_link(285, 345, 104, 120)
     out += render_node(345, 86, "B", prev_null=False, next_null=False, variant="delete")
     out += render_link(455, 515, 104, 120)
     out += render_node(515, 86, "C", prev_null=False, next_null=True, variant="normal")
-    out += render_bottom_tag(400, 145, "target akan dihapus", "delete")
+    out += render_bottom_tag(400, 145, "node_target akan dihapus", "delete")
     
     out += '  <line x1="30" y1="175" x2="770" y2="175" stroke="#E2E8F0" stroke-width="1"/>\n'
     out += '  <text x="30" y="205" font-size="13" font-weight="bold" fill="#0F172A">2. Hasil Akhir (P dan Q disambungkan langsung, List menjadi 2 Node):</text>\n'
-    out += render_pointer(315, 222, "First(L) (P)", "first", width=85)
-    out += render_pointer(485, 222, "Last(L) (Q)", "last", width=85)
+    out += render_pointer(315, 222, "dll.first (P)", "first", width=85)
+    out += render_pointer(485, 222, "dll.last (Q)", "last", width=85)
     out += render_node(260, 260, "A", prev_null=True, next_null=False, variant="normal")
     out += render_link(370, 430, 278, 294)
     out += render_node(430, 260, "C", prev_null=False, next_null=True, variant="normal")
-    out += render_bottom_tag(375, 322, "next(P) &lt;- Q  &amp;  prev(Q) &lt;- P", "info")
+    out += render_bottom_tag(375, 322, "P.next = Q  &amp;  Q.prev = P", "info")
     out += "</svg>"
     return out
 

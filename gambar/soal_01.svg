@@ -22,17 +22,17 @@
       <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#0F172A" flood-opacity="0.08"/>
     </filter>
   </defs>
-  <text x="30" y="28" font-size="13" font-weight="bold" fill="#0F172A">1. Kondisi Awal (List L masih kosong, Node baru P dialokasikan):</text>
-  <!-- Pointer Badge First(L) = NULL -->
+  <text x="30" y="28" font-size="13" font-weight="bold" fill="#0F172A">1. Kondisi Awal (List masih kosong, Node baru P dialokasikan):</text>
+  <!-- Pointer Badge dll.first = None -->
   <g transform="translate(172.5, 50)">
     <rect x="0" y="0" width="95" height="20" rx="4" fill="#0369A1"/>
-    <text x="47.5" y="14" font-size="9.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">First(L) = NULL</text>
+    <text x="47.5" y="14" font-size="9.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">dll.first = None</text>
   </g>
   <line x1="220" y1="70" x2="220" y2="82" stroke="#0369A1" stroke-width="1.8" marker-end="url(#arrow-first)"/>
-  <!-- Pointer Badge Last(L) = NULL -->
+  <!-- Pointer Badge dll.last = None -->
   <g transform="translate(312.5, 50)">
     <rect x="0" y="0" width="95" height="20" rx="4" fill="#C2410C"/>
-    <text x="47.5" y="14" font-size="9.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">Last(L) = NULL</text>
+    <text x="47.5" y="14" font-size="9.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">dll.last = None</text>
   </g>
   <line x1="360" y1="70" x2="360" y2="82" stroke="#C2410C" stroke-width="1.8" marker-end="url(#arrow-last)"/>
   <!-- Pointer Badge P (Node Baru) -->
@@ -43,11 +43,11 @@
   <line x1="580" y1="70" x2="580" y2="82" stroke="#7C3AED" stroke-width="1.8" marker-end="url(#arrow-p)"/>
   <g transform="translate(170, 86)">
     <rect x="0" y="0" width="100" height="48" rx="6" fill="#F8FAFC" stroke="#94A3B8" stroke-dasharray="4 4" stroke-width="1.5"/>
-    <text x="50" y="29" font-size="12" font-weight="bold" fill="#94A3B8" text-anchor="middle">NULL</text>
+    <text x="50" y="29" font-size="12" font-weight="bold" fill="#94A3B8" text-anchor="middle">None</text>
   </g>
   <g transform="translate(310, 86)">
     <rect x="0" y="0" width="100" height="48" rx="6" fill="#F8FAFC" stroke="#94A3B8" stroke-dasharray="4 4" stroke-width="1.5"/>
-    <text x="50" y="29" font-size="12" font-weight="bold" fill="#94A3B8" text-anchor="middle">NULL</text>
+    <text x="50" y="29" font-size="12" font-weight="bold" fill="#94A3B8" text-anchor="middle">None</text>
   </g>
   <!-- Node D -->
   <g transform="translate(525, 86)" filter="url(#shadow)">
@@ -61,22 +61,22 @@
     <line x1="6" y1="42" x2="22" y2="16" stroke="#DC2626" stroke-width="2.2" stroke-linecap="round"/>
     <line x1="88" y1="42" x2="104" y2="16" stroke="#DC2626" stroke-width="2.2" stroke-linecap="round"/>
   </g>
-  <g transform="translate(477.75, 145)">
-    <rect x="0" y="0" width="204.5" height="19" rx="4" fill="#F5F3FF" stroke="#DDD6FE" stroke-width="1"/>
-    <text x="102.25" y="13.5" font-size="10" font-weight="600" fill="#6D28D9" text-anchor="middle">P = BIKIN_NODE(&quot;D&quot;)</text>
+  <g transform="translate(497.25, 145)">
+    <rect x="0" y="0" width="165.5" height="19" rx="4" fill="#F5F3FF" stroke="#DDD6FE" stroke-width="1"/>
+    <text x="82.75" y="13.5" font-size="10" font-weight="600" fill="#6D28D9" text-anchor="middle">P = Node(&quot;D&quot;)</text>
   </g>
   <line x1="30" y1="175" x2="770" y2="175" stroke="#E2E8F0" stroke-width="1"/>
-  <text x="30" y="205" font-size="13" font-weight="bold" fill="#0F172A">2. Hasil Akhir (First(L) &lt;- P, Last(L) &lt;- P):</text>
-  <!-- Pointer Badge First(L) -->
-  <g transform="translate(278.0, 222)">
-    <rect x="0" y="0" width="74.0" height="20" rx="4" fill="#0369A1"/>
-    <text x="37.0" y="14" font-size="9.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">First(L)</text>
+  <text x="30" y="205" font-size="13" font-weight="bold" fill="#0F172A">2. Hasil Akhir (dll.first = P, dll.last = P):</text>
+  <!-- Pointer Badge dll.first -->
+  <g transform="translate(274.25, 222)">
+    <rect x="0" y="0" width="81.5" height="20" rx="4" fill="#0369A1"/>
+    <text x="40.75" y="14" font-size="9.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">dll.first</text>
   </g>
   <line x1="315" y1="242" x2="315" y2="254" stroke="#0369A1" stroke-width="1.8" marker-end="url(#arrow-first)"/>
-  <!-- Pointer Badge Last(L) -->
-  <g transform="translate(451.75, 222)">
-    <rect x="0" y="0" width="66.5" height="20" rx="4" fill="#C2410C"/>
-    <text x="33.25" y="14" font-size="9.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">Last(L)</text>
+  <!-- Pointer Badge dll.last -->
+  <g transform="translate(448.0, 222)">
+    <rect x="0" y="0" width="74.0" height="20" rx="4" fill="#C2410C"/>
+    <text x="37.0" y="14" font-size="9.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">dll.last</text>
   </g>
   <line x1="485" y1="242" x2="485" y2="254" stroke="#C2410C" stroke-width="1.8" marker-end="url(#arrow-last)"/>
   <!-- Node D -->
@@ -91,8 +91,8 @@
     <line x1="6" y1="42" x2="22" y2="16" stroke="#DC2626" stroke-width="2.2" stroke-linecap="round"/>
     <line x1="88" y1="42" x2="104" y2="16" stroke="#DC2626" stroke-width="2.2" stroke-linecap="round"/>
   </g>
-  <g transform="translate(320.5, 322)">
-    <rect x="0" y="0" width="159.0" height="19" rx="4" fill="#DCFCE7" stroke="#86EFAC" stroke-width="1"/>
-    <text x="79.5" y="13.5" font-size="10" font-weight="600" fill="#15803D" text-anchor="middle">First(L) = Last(L) = P</text>
+  <g transform="translate(314.0, 322)">
+    <rect x="0" y="0" width="172.0" height="19" rx="4" fill="#DCFCE7" stroke="#86EFAC" stroke-width="1"/>
+    <text x="86.0" y="13.5" font-size="10" font-weight="600" fill="#15803D" text-anchor="middle">dll.first = dll.last = P</text>
   </g>
 </svg>

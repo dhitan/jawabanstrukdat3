@@ -22,17 +22,17 @@
       <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#0F172A" flood-opacity="0.08"/>
     </filter>
   </defs>
-  <text x="30" y="28" font-size="13" font-weight="bold" fill="#0F172A">Penelusuran Maju (P &lt;- First(L), lalu berulang P &lt;- next(P)):</text>
-  <!-- Pointer Badge P (Mulai = First(L)) -->
+  <text x="30" y="28" font-size="13" font-weight="bold" fill="#0F172A">Penelusuran Maju (P = dll.first, lalu berulang P = P.next):</text>
+  <!-- Pointer Badge P (Mulai = dll.first) -->
   <g transform="translate(165.0, 48)">
     <rect x="0" y="0" width="130" height="20" rx="4" fill="#7C3AED"/>
-    <text x="65.0" y="14" font-size="9.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">P (Mulai = First(L))</text>
+    <text x="65.0" y="14" font-size="9.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">P (Mulai = dll.first)</text>
   </g>
   <line x1="230" y1="68" x2="230" y2="80" stroke="#7C3AED" stroke-width="1.8" marker-end="url(#arrow-p)"/>
-  <!-- Pointer Badge Last(L) (Berhenti) -->
+  <!-- Pointer Badge dll.last (Berhenti) -->
   <g transform="translate(510.0, 48)">
     <rect x="0" y="0" width="120" height="20" rx="4" fill="#C2410C"/>
-    <text x="60.0" y="14" font-size="9.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">Last(L) (Berhenti)</text>
+    <text x="60.0" y="14" font-size="9.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">dll.last (Berhenti)</text>
   </g>
   <line x1="570" y1="68" x2="570" y2="80" stroke="#C2410C" stroke-width="1.8" marker-end="url(#arrow-last)"/>
   <!-- Node A -->
