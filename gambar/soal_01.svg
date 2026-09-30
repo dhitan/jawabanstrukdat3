@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 400" width="100%" height="auto" style="max-width: 820px; background: #FFFFFF; border-radius: 12px; border: 1px solid #CBD5E1; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#0284C7"/>
+    </marker>
+    <marker id="arrow-orange" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#EA580C"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#DC2626"/>
+    </marker>
+    <marker id="arrow-first" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#0369A1"/>
+    </marker>
+    <marker id="arrow-last" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#EA580C"/>
+    </marker>
+    <marker id="arrow-p" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#0284C7"/>
+    </marker>
+    <filter id="shadow" x="-4%" y="-8%" width="108%" height="124%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0F172A" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+  <text x="30" y="32" font-size="16" font-weight="bold" fill="#1E293B">INSERT PADA LIST KOSONG</text>
+  <text x="30" y="65" font-size="12" font-weight="bold" fill="#64748B">INITIAL STATE (First(L) &amp; Last(L) masih NULL / nil):</text>
+  <text x="70" y="118" font-size="17" font-weight="bold" fill="#0F172A" font-style="italic">L</text>
+  <g transform="translate(95, 100)">
+    <rect x="0" y="0" width="52" height="28" fill="#FFFFFF" stroke="#0369A1" stroke-width="1.4"/>
+    <text x="26.0" y="18.5" font-size="11" font-weight="600" fill="#0369A1" text-anchor="middle">First</text>
+  </g>
+  <path d="M 147 114 H 195 V 135 H 220" fill="none" stroke="#0369A1" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <g transform="translate(220, 122)">
+    <rect x="0" y="0" width="32" height="28" fill="#F8FAFC" stroke="#64748B" stroke-width="1.4"/>
+    <text x="16.0" y="18.5" font-size="15" font-weight="600" fill="#DC2626" text-anchor="middle">/</text>
+  </g>
+  <path d="M 330 114 H 285 V 135 H 255" fill="none" stroke="#EA580C" stroke-width="2" marker-end="url(#arrow-orange)"/>
+  <g transform="translate(330, 100)">
+    <rect x="0" y="0" width="52" height="28" fill="#FFFFFF" stroke="#EA580C" stroke-width="1.4"/>
+    <text x="26.0" y="18.5" font-size="11" font-weight="600" fill="#EA580C" text-anchor="middle">Last</text>
+  </g>
+  <g transform="translate(500, 60)">
+    <rect x="0" y="0" width="36" height="24" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.4"/>
+    <text x="18.0" y="16.5" font-size="11" font-weight="600" fill="#0284C7" text-anchor="middle">p</text>
+  </g>
+  <path d="M 536 72 H 580 V 96" fill="none" stroke="#0284C7" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <!-- Node D at (527, 98) -->
+  <g transform="translate(527, 98)" filter="url(#shadow)">
+    <rect x="0" y="0" width="105" height="48" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.6"/>
+    <rect x="24" y="0" width="57" height="48" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.2"/>
+    <line x1="24" y1="0" x2="24" y2="48" stroke="#16A34A" stroke-width="1.2"/>
+    <line x1="81" y1="0" x2="81" y2="48" stroke="#16A34A" stroke-width="1.2"/>
+    <text x="52.5" y="30.0" font-size="16" font-weight="bold" fill="#15803D" text-anchor="middle">D</text>
+    <line x1="6" y1="40" x2="18" y2="8" stroke="#16A34A" stroke-width="2" stroke-linecap="round"/>
+    <line x1="87" y1="40" x2="99" y2="8" stroke="#16A34A" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(660, 50)">
+    <rect x="0" y="0" width="130" height="75" rx="6" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1.2"/>
+    <text x="12" y="20" font-size="11" font-weight="bold" fill="#15803D">Algoritma:</text>
+    <text x="12" y="42" font-size="11" font-weight="bold" fill="#166534">First(L) &lt;- p</text>
+    <text x="12" y="62" font-size="11" font-weight="bold" fill="#166534">Last(L) &lt;- p</text>
+  </g>
+  <!-- Transition arrow -->
+  <g transform="translate(398, 175)">
+    <polygon points="0,0 24,0 24,20 34,20 12,38 -10,20 0,20" fill="#0D9488" stroke="#0F766E" stroke-width="1"/>
+  </g>
+  <text x="30" y="235" font-size="12" font-weight="bold" fill="#64748B">HASIL AKHIR (First(L) &lt;- p, Last(L) &lt;- p):</text>
+  <text x="70" y="310" font-size="17" font-weight="bold" fill="#0F172A" font-style="italic">L</text>
+  <g transform="translate(95, 292)">
+    <rect x="0" y="0" width="52" height="28" fill="#FFFFFF" stroke="#0369A1" stroke-width="1.4"/>
+    <text x="26.0" y="18.5" font-size="11" font-weight="600" fill="#0369A1" text-anchor="middle">First</text>
+  </g>
+  <path d="M 147 306 H 240 V 315 H 270" fill="none" stroke="#0369A1" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <g transform="translate(240, 245)">
+    <rect x="0" y="0" width="36" height="24" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.4"/>
+    <text x="18.0" y="16.5" font-size="11" font-weight="600" fill="#0284C7" text-anchor="middle">p</text>
+  </g>
+  <path d="M 276 257 H 322 V 288" fill="none" stroke="#0284C7" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <!-- Node D at (270, 290) -->
+  <g transform="translate(270, 290)" filter="url(#shadow)">
+    <rect x="0" y="0" width="105" height="48" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.6"/>
+    <rect x="24" y="0" width="57" height="48" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.2"/>
+    <line x1="24" y1="0" x2="24" y2="48" stroke="#16A34A" stroke-width="1.2"/>
+    <line x1="81" y1="0" x2="81" y2="48" stroke="#16A34A" stroke-width="1.2"/>
+    <text x="52.5" y="30.0" font-size="16" font-weight="bold" fill="#15803D" text-anchor="middle">D</text>
+    <line x1="6" y1="40" x2="18" y2="8" stroke="#16A34A" stroke-width="2" stroke-linecap="round"/>
+    <line x1="87" y1="40" x2="99" y2="8" stroke="#16A34A" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(460, 292)">
+    <rect x="0" y="0" width="52" height="28" fill="#FFFFFF" stroke="#EA580C" stroke-width="1.4"/>
+    <text x="26.0" y="18.5" font-size="11" font-weight="600" fill="#EA580C" text-anchor="middle">Last</text>
+  </g>
+  <path d="M 460 306 H 405 V 315 H 378" fill="none" stroke="#EA580C" stroke-width="2" marker-end="url(#arrow-orange)"/>
+</svg>
