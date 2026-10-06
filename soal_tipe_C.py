@@ -191,7 +191,12 @@ def soal_30_search(dll, target):
         P = P.next
     RETURN None
     """
-    pass  # <-- tulis kode Anda di sini
+    P = dll.first
+    while P is not None:
+        if P.info == target:
+            return P
+        P = P.next
+    return None
 
 # ======================================================================
 # SOAL 31 -- Delete First Node
