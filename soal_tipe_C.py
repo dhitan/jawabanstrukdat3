@@ -137,8 +137,8 @@ def soal_27_insert_before(dll, node_target, data):
 # ======================================================================
 # SOAL 28 -- Traverse Maju
 # ======================================================================
-NIM_28 = "ISI_NIM"
-NAMA_28 = "ISI_NAMA"
+NIM_28 = "108102500049"
+NAMA_28 = "Arina Rizka Fauziyah"
 
 def soal_28_traverse_maju(dll):
     """
@@ -154,7 +154,15 @@ def soal_28_traverse_maju(dll):
         P = P.next
     RETURN hasil
     """
-    pass  # <-- tulis kode Anda di sini
+    hasil = ""
+    P = dll.first
+    while P is not None:
+        if hasil == "":
+            hasil = P.info
+        else:
+            hasil = hasil + "<->" + P.info
+        P = P.next
+    return hasil
 
 # ======================================================================
 # SOAL 29 -- Traverse Mundur
