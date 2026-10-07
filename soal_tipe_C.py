@@ -45,7 +45,10 @@ def soal_23_insert_empty(dll, data):
     dll.first = P
     dll.last = P
     """
-    pass  # <-- tulis kode Anda di sini
+def soal_23_insert_empty(dll, data):
+    P = Node(data)
+    dll.first = P
+    dll.last = P
 
 # ======================================================================
 # SOAL 24 -- Insert First Node
