@@ -45,13 +45,16 @@ def soal_23_insert_empty(dll, data):
     dll.first = P
     dll.last = P
     """
-    pass  # <-- tulis kode Anda di sini
+def soal_23_insert_empty(dll, data):
+    P = Node(data)
+    dll.first = P
+    dll.last = P
 
 # ======================================================================
 # SOAL 24 -- Insert First Node
 # ======================================================================
-NIM_24 = "ISI_NIM"
-NAMA_24 = "ISI_NAMA"
+NIM_24 = "108102500008"
+NAMA_24 = "M.Narendra Satya Nugraha"
 
 def soal_24_insert_first(dll, data):
     """
@@ -65,8 +68,12 @@ def soal_24_insert_first(dll, data):
     dll.first.prev = P
     dll.first = P
     """
-    pass  # <-- tulis kode Anda di sini
 
+    P = Node(data)
+    P.next = dll.first
+    dll.first.prev = P
+    dll.first = P
+    
 # ======================================================================
 # SOAL 25 -- Insert Last Node
 # ======================================================================
@@ -90,8 +97,8 @@ def soal_25_insert_last(dll, data):
 # ======================================================================
 # SOAL 26 -- Insert After Target Node
 # ======================================================================
-NIM_26 = "ISI_NIM"
-NAMA_26 = "ISI_NAMA"
+NIM_26 = "108102500003"
+NAMA_26 = "Mahdiya Rifaya Safa"
 
 def soal_26_insert_after(dll, node_target, data):
     """
@@ -105,7 +112,10 @@ def soal_26_insert_after(dll, node_target, data):
     node_target.next = P
     dll.last = P
     """
-    pass  # <-- tulis kode Anda di sini
+    P = Node(data)
+    P.prev = node_target
+    node_target.next = P
+    dll.last = P
 
 # ======================================================================
 # SOAL 27 -- Insert Before Target Node
@@ -133,8 +143,8 @@ def soal_27_insert_before(dll, node_target, data):
 # ======================================================================
 # SOAL 28 -- Traverse Maju
 # ======================================================================
-NIM_28 = "ISI_NIM"
-NAMA_28 = "ISI_NAMA"
+NIM_28 = "108102500049"
+NAMA_28 = "Arina Rizka Fauziyah"
 
 def soal_28_traverse_maju(dll):
     """
@@ -150,13 +160,21 @@ def soal_28_traverse_maju(dll):
         P = P.next
     RETURN hasil
     """
-    pass  # <-- tulis kode Anda di sini
+    hasil = ""
+    P = dll.first
+    while P is not None:
+        if hasil == "":
+            hasil = P.info
+        else:
+            hasil = hasil + "<->" + P.info
+        P = P.next
+    return hasil
 
 # ======================================================================
 # SOAL 29 -- Traverse Mundur
 # ======================================================================
-NIM_29 = "ISI_NIM"
-NAMA_29 = "ISI_NAMA"
+NIM_29 = "108102500005"
+NAMA_29 = "HANA NAYLA SYAKURA"
 
 def soal_29_traverse_mundur(dll):
     """
@@ -172,13 +190,23 @@ def soal_29_traverse_mundur(dll):
         P = P.prev
     RETURN hasil
     """
-    pass  # <-- tulis kode Anda di sini
+
+    hasil = ""
+    P = dll.last                      # mulai dari node paling belakang
+    while P is not None:              # ulangi sampai melewati node paling depan
+        if hasil == "":
+            hasil = str(P.info)       # node pertama: tanpa tanda panah
+        else:
+            hasil = hasil + " <-> " + str(P.info)   # node berikutnya: tambah panah
+        P = P.prev                    # mundur ke node sebelumnya
+    return hasil
+
 
 # ======================================================================
 # SOAL 30 -- Search Target
 # ======================================================================
-NIM_30 = "ISI_NIM"
-NAMA_30 = "ISI_NAMA"
+NIM_30 = "108102500007"
+NAMA_30 = "Raihana Nisyapuri Ardaniswari"
 
 def soal_30_search(dll, target):
     """
@@ -222,8 +250,8 @@ def soal_31_delete_first(dll):
 # ======================================================================
 # SOAL 32 -- Delete Last Node
 # ======================================================================
-NIM_32 = "ISI_NIM"
-NAMA_32 = "ISI_NAMA"
+NIM_32 = "108102500019"
+NAMA_32 = "PUTU WIJIATI"
 
 def soal_32_delete_last(dll):
     """
@@ -235,7 +263,14 @@ def soal_32_delete_last(dll):
     dll.last = dll.last.prev
     dll.last.next = None
     """
-    pass  # <-- tulis kode Anda di sini
+    if dll.last is None:
+        return
+    if dll.first == dll.last:
+        dll.first = None
+        dll.last = None
+        return
+    dll.last = dll.last.prev
+    dll.last.next = None
 
 # ======================================================================
 # SOAL 33 -- Delete Target Node
