@@ -110,8 +110,8 @@ def soal_26_insert_after(dll, node_target, data):
 # ======================================================================
 # SOAL 27 -- Insert Before Target Node
 # ======================================================================
-NIM_27 = "ISI_NIM"
-NAMA_27 = "ISI_NAMA"
+NIM_27 = "108102500038"
+NAMA_27 = "Bintang Cahya Brilliant Putra"
 
 def soal_27_insert_before(dll, node_target, data):
     """
@@ -125,7 +125,10 @@ def soal_27_insert_before(dll, node_target, data):
     node_target.prev = P
     dll.first = P
     """
-    pass  # <-- tulis kode Anda di sini
+    P = Node(data)
+    P.next = node_target
+    node_target.prev = P
+    dll.first = P
 
 # ======================================================================
 # SOAL 28 -- Traverse Maju
