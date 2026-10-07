@@ -244,8 +244,8 @@ def soal_31_delete_first(dll):
 # ======================================================================
 # SOAL 32 -- Delete Last Node
 # ======================================================================
-NIM_32 = "ISI_NIM"
-NAMA_32 = "ISI_NAMA"
+NIM_32 = "108102500019"
+NAMA_32 = "PUTU WIJIATI"
 
 def soal_32_delete_last(dll):
     """
@@ -257,7 +257,14 @@ def soal_32_delete_last(dll):
     dll.last = dll.last.prev
     dll.last.next = None
     """
-    pass  # <-- tulis kode Anda di sini
+    if dll.last is None:
+        return
+    if dll.first == dll.last:
+        dll.first = None
+        dll.last = None
+        return
+    dll.last = dll.last.prev
+    dll.last.next = None
 
 # ======================================================================
 # SOAL 33 -- Delete Target Node
