@@ -90,8 +90,8 @@ def soal_25_insert_last(dll, data):
 # ======================================================================
 # SOAL 26 -- Insert After Target Node
 # ======================================================================
-NIM_26 = "ISI_NIM"
-NAMA_26 = "ISI_NAMA"
+NIM_26 = "108102500003"
+NAMA_26 = "Mahdiya Rifaya Safa"
 
 def soal_26_insert_after(dll, node_target, data):
     """
@@ -105,7 +105,10 @@ def soal_26_insert_after(dll, node_target, data):
     node_target.next = P
     dll.last = P
     """
-    pass  # <-- tulis kode Anda di sini
+    P = Node(data)
+    P.prev = node_target
+    node_target.next = P
+    dll.last = P
 
 # ======================================================================
 # SOAL 27 -- Insert Before Target Node
