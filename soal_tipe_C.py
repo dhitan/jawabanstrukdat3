@@ -152,8 +152,8 @@ def soal_28_traverse_maju(dll):
 # ======================================================================
 # SOAL 29 -- Traverse Mundur
 # ======================================================================
-NIM_29 = "ISI_NIM"
-NAMA_29 = "ISI_NAMA"
+NIM_29 = "108102500005"
+NAMA_29 = "HANA NAYLA SYAKURA"
 
 def soal_29_traverse_mundur(dll):
     """
@@ -169,7 +169,17 @@ def soal_29_traverse_mundur(dll):
         P = P.prev
     RETURN hasil
     """
-    pass  # <-- tulis kode Anda di sini
+
+    hasil = ""
+    P = dll.last                      # mulai dari node paling belakang
+    while P is not None:              # ulangi sampai melewati node paling depan
+        if hasil == "":
+            hasil = str(P.info)       # node pertama: tanpa tanda panah
+        else:
+            hasil = hasil + " <-> " + str(P.info)   # node berikutnya: tambah panah
+        P = P.prev                    # mundur ke node sebelumnya
+    return hasil
+
 
 # ======================================================================
 # SOAL 30 -- Search Target
