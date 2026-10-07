@@ -31,8 +31,8 @@ from helper import Node, DoublyLinkedList, jalankan_pengujian
 # ======================================================================
 # SOAL 23 -- Insert Empty Node
 # ======================================================================
-NIM_23 = "ISI_NIM"
-NAMA_23 = "ISI_NAMA"
+NIM_23 = "108102500001"
+NAMA_23 = "Nafisha Khayla S.N"
 
 def soal_23_insert_empty(dll, data):
     """
