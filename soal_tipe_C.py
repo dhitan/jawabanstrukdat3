@@ -199,8 +199,8 @@ def soal_29_traverse_mundur(dll):
 # ======================================================================
 # SOAL 30 -- Search Target
 # ======================================================================
-NIM_30 = "ISI_NIM"
-NAMA_30 = "ISI_NAMA"
+NIM_30 = "108102500007"
+NAMA_30 = "Raihana Nisyapuri Ardaniswari"
 
 def soal_30_search(dll, target):
     """
